@@ -17,8 +17,7 @@ class CreateAddressesTable extends Migration
             $table->increments('id');
             $table->string('country');
             $table->string('city');
-            $table->string('street');
-            //$table->text('street');
+            $table->text('street');
             $table->timestamps();
         });
     }

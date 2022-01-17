@@ -16,12 +16,9 @@ class CreateGardensTable extends Migration
         Schema::create('gardens', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('length');
-            $table->string('width');
-            $table->string('adress_id');
-            // $table->double('length', 8, 2);
-            // $table->double('width', 8, 2);
-            // $table->int('adress_id');
+            $table->double('length', 8, 2);
+            $table->double('width', 8, 2);
+            $table->foreignId('adress_id');
             $table->timestamps();
         });
     }

@@ -16,15 +16,10 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('subject');
-            $table->string('text');
-            $table->string('status_id');
-            $table->string('user_id');
-            $table->string('garden_id');
-            // $table->string('subject');
-            // $table->text('text');
-            // $table->int('status_id');
-            // $table->int('user_id');
-            // $table->int('garden_id');
+            $table->text('text');
+            $table->foreignId('status_id');
+            $table->foreignId('user_id');
+            $table->foreignId('garden_id');
             $table->timestamps();
 
         });
