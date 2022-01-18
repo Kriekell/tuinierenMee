@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Garden;
 use Illuminate\Http\Request;
+use DB;
 
 class GardenController extends Controller
 {
@@ -12,9 +13,11 @@ class GardenController extends Controller
         return response()->json(Garden::all());
     }
 
-    public function showOneGarden($id)
+    public function showOneGarden($id) 
     {
-        return response()->json(Garden::find($id));
+        $result = DB::select("SELECT gardens.id ,gardens.name ,gardens.length ,gardens.width ,addresses.country AS country ,addresses.city AS city ,addresses.street AS street  FROM addresses JOIN gardens ON addresses.id = gardens.adress_id WHERE gardens.id = {$id}");
+        return json_encode($result);
+        // return response()->json(Garden::find($id));
     }
 
     public function createGarden(Request $request)

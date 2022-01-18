@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Garden extends Model
 {
-    protected $fillable = ['name','length','width'];
+    protected $fillable = ['name','length','width','country','city','street'];
 }

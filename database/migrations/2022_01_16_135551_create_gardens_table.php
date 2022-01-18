@@ -18,7 +18,9 @@ class CreateGardensTable extends Migration
             $table->string('name');
             $table->double('length', 8, 2);
             $table->double('width', 8, 2);
-            $table->foreignId('adress_id');
+            $table->string('country');
+            $table->string('city');
+            $table->string('street');
             $table->timestamps();
         });
     }

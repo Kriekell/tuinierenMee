@@ -21,16 +21,16 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api'], function () use ($router) {
     // get request
     $router->get('users',  ['uses' => 'UserController@showAllUsers']);
-
     $router->get('users/{id}', ['uses' => 'UserController@showOneUser']);
 
+    //get request Show User Email & Password
+    $router->get('loginD',  ['uses' => 'UserController@getUserLogin']);
+    $router->get('user/{id}',  ['uses' => 'UserController@showUser']);
+
+    //others request
     $router->post('users', ['uses' => 'UserController@createUser']);
-
     $router->delete('users/{id}', ['uses' => 'UserController@deleteUser']);
-
     $router->put('users/{id}', ['uses' => 'UserController@updateUser']);
-
-    $router->get('gardens',  ['uses' => 'GardenController@showAllUsers']);
 });
 
 //http://localhost:8000/api/gardens
